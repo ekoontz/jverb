@@ -1,0 +1,30 @@
+<h1>Listing inflections</h1>
+
+<table>
+  <tr>
+  <% for column in Inflection.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  <% i = 0 %>
+
+<% for inflection in @inflections %>
+<% i = i + 1 %>
+  <tr class="row_<%= i%2 %>">
+  <th><%= i %></th>
+  <% for column in Inflection.content_columns %>
+    <td><%=h inflection.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => inflection %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => inflection %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => inflection }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @inflection_pages.current.previous } if @inflection_pages.current.previous %>
+<%= link_to 'Next page', { :page => @inflection_pages.current.next } if @inflection_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New inflection', :action => 'new' %>
