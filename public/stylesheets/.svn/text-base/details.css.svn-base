@@ -1,0 +1,18 @@
+div.detailed_sorter {
+    padding:0.25em;
+    background: #66eeff;
+    border: 1px solid #0000ff;
+}
+
+div.detailed_sorter table {
+    border:0;
+    width:90%;
+    padding:0;
+    margin:0;
+    border-collapse: collapse;
+}
+
+div.detailed_sorter td {
+    padding:0;
+    margin:0;
+}

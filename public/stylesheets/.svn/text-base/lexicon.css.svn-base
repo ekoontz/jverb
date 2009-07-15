@@ -1,0 +1,10 @@
+table.select {
+    border-collapse:collapse;
+    border:0;
+}
+
+table.select td {
+    text-align:right;
+    padding:0.25em;
+}
+

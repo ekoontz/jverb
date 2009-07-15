@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/jverb/!svn/ver/225/public/stylesheets/xsl
+END
+inflect2html.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jverb/!svn/ver/194/public/stylesheets/xsl/inflect2html.xsl
+END
+kanjiquiz2html.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/jverb/!svn/ver/225/public/stylesheets/xsl/kanjiquiz2html.xsl
+END
+lexeme.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/jverb/!svn/ver/196/public/stylesheets/xsl/lexeme.xsl
+END
+quiz2html.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/jverb/!svn/ver/211/public/stylesheets/xsl/quiz2html.xsl
+END
+stdlib.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/jverb/!svn/ver/224/public/stylesheets/xsl/stdlib.xsl
+END
+edit.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/jverb/!svn/ver/163/public/stylesheets/xsl/edit.xsl
+END
+lexicon2html.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/jverb/!svn/ver/213/public/stylesheets/xsl/lexicon2html.xsl
+END
+quiz.xsl
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/jverb/!svn/ver/223/public/stylesheets/xsl/quiz.xsl
+END

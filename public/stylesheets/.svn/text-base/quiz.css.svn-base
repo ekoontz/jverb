@@ -1,0 +1,296 @@
+@import "details.css";
+@import "lexicon.css";
+
+table.tabs {
+    width:100%;
+    border:0;
+}
+
+tbody.tabs {
+    border:1px solid #0000ff;
+}
+
+
+th.tabs {
+    border:1px solid blue;
+    background:white;
+    margin-left:0.5em;
+    margin-right:0.5em;
+}
+
+th.spacer {
+    background: white;
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+div.tab_body {
+    width:100%;
+}
+
+.selected {
+    background:#66ff66;
+    border:#66ff66;
+}
+
+.selectable {
+    background:#eef;
+    border:#66ff66;
+}
+
+img {
+    border:0;
+}
+
+h2 {
+    padding:0;
+    margin:0;
+}
+
+html {
+    font-family:sans-serif;
+}
+
+td.edit {
+    padding:0;margin:0;
+}
+
+.edit form {
+    padding:0;margin:0;
+}
+
+.edit table {
+    padding:0;
+    margin:0;
+    border:0;
+}
+
+.edit button {
+    width:5em;
+    padding:1px;
+    margin:0;
+    border:1px solid black;
+}
+
+.show {
+    white-space:nowrap;
+    text-align:center;
+}
+
+div.show table {
+    width:100%;
+}
+
+div.edit {
+    /* use javascript to display */
+    display:none;
+    border:0;
+}
+
+div.edit table {
+    /* use javascript to display */
+    width:100%;
+    border:0;
+}
+
+
+div.main {
+    background:white;
+}
+
+tr.row1 {
+}
+
+tr.row0 {
+    background:#66eeff;
+}
+
+table.lexicon th {
+    text-align:left;
+}
+
+
+table.lexicon td {
+    padding:0.125em;margin:0;
+}
+
+.last {
+    width:75%;
+}
+
+.question {
+}
+
+div {
+    float:left;
+}
+
+div.header {
+    width:20em;
+    padding:0;
+    border:2px solid #6666ff;
+    background: #66eeff;
+    margin-bottom:0.25em;
+}
+
+div.header h2 {
+}
+
+h3.en {
+  vertical-align:middle;
+    padding:0;
+  margin:0;
+    float:left;
+    border:0px dashed green;
+    white-space:normal;
+}
+
+h2.jp {
+    padding:0.25em;
+    float:right;
+    border:0px dashed green;
+    white-space:normal;
+    width:1em;
+}
+
+table {
+    margin-top:0.5em;
+    margin-bottom:0.5em;
+    padding:0.5em;
+    border:1px solid #6666ff;
+    border-collapse:collapse;
+}
+
+td {
+    text-align:center;
+}
+
+th {
+    text-align:center;
+    background: #66eeff;
+    border-bottom: 1px solid #6666ff;
+    padding:0.25em;
+}
+
+td {
+    padding:1em;
+}
+
+.welcome {
+    background: #cccc99;
+}
+
+.ratio {
+    border:0;
+    background: #66ff66;
+    padding:0;
+    padding-bottom:1em;
+    margin:0;
+}
+
+
+
+td.correct {
+  padding:1em;
+    background: #66ff66;
+}
+
+.incorrect {
+  padding:1em;
+    background: #cc3366;
+}
+
+.wrong {
+    background: red;
+}
+
+.selected {
+    background:#66ff66;
+    padding:0.5em;
+    border: 1px solid #6666ff;
+}
+
+table.posneg {
+    width:100%;
+    text-align:center;
+    border:0;
+}
+
+table.posneg th {
+    text-align:center;
+    border:0;
+}
+
+table.posneg td {
+    text-align:center;
+    border:0;
+}
+
+table.plain {
+    border:0;
+    margin:0;
+    padding:0;
+    border-collapse: collapse;
+ }
+
+div.detailed {
+}
+
+table.detailed td {
+    vertical-align:top;
+}
+
+table.details {
+    border:1px solid #0000ff;
+}
+
+table.details td {
+}
+
+
+table.inflections {
+    border: #6666ff 1px solid;
+}
+
+table.inflections th {
+    border:0;
+    border-right: #6666ff 1px solid;
+}
+
+th.under {
+    text-align:right;
+}
+
+div.statusbox {
+    width:30%;
+    float:right;
+    background:white;
+}
+
+table.lexicon td {
+    text-align:left;
+    white-space:nowrap;
+}
+
+table.inflselect {
+    vertical-align:top;
+    float:left;
+    width:40%;
+}
+
+
+table.inflect {
+    vertical-align:top;
+    float:right;
+    width:40%;
+}
+
+table.inflect h2 {
+    text-align:center;
+    padding:0.5em; 
+}
+
+table.inflect td {
+    border:1px solid #6666ff;
+}
