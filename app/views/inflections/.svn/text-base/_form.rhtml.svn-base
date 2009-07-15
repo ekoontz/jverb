@@ -1,7 +1,0 @@
-<%= error_messages_for 'inflection' %>
-
-<!--[form:inflection]-->
-<p><label for="inflection_name">Name</label><br/>
-<%= text_field 'inflection', 'name'  %></p>
-<!--[eoform:inflection]-->
-

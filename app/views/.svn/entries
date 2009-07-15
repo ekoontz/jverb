@@ -1,46 +1,0 @@
-9
-
-dir
-227
-http://hiro-tan.org/svn/jverb/app/views
-http://hiro-tan.org/svn/jverb
-
-
-
-2008-06-28T21:52:24.526542Z
-218
-
-
-
-svn:special svn:externals svn:needs-lock
-
-
-
-
-
-
-
-
-
-
-
-5dcdc30b-9505-431e-ac69-3f72c5d70b08
-
-layouts
-dir
-
-lexicon
-dir
-
-inflect
-dir
-
-quiz
-dir
-
-kanji
-dir
-
-inflections
-dir
-
