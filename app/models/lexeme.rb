@@ -83,19 +83,19 @@ class Lexeme < ActiveRecord::Base
       else
       case tense
       when "past"
-        case present_form.chars.slice(present_form.chars.to_a.size-2,present_form.chars.to_a.size).to_s
+        case present_form.chars.to_a.slice(present_form.chars.to_a.size-2,present_form.chars.to_a.size).to_s
         when "する"
-          return present_form.chars.slice(0,present_form.chars.to_a.size-2) + "した"
+          return present_form.chars.to_a.slice(0,present_form.chars.to_a.size-2).to_s + "した"
         when "ない"
-          return present_form.chars.slice(0,present_form.chars.to_a.size-2) + "なかった"
+          return present_form.chars.to_a.slice(0,present_form.chars.to_a.size-2).to_s + "なかった"
         else
-          case present_form.chars.slice(present_form.chars.to_a.size-1,present_form.chars.to_a.size).to_s
+          case present_form.chars.to_a.slice(present_form.chars.to_a.size-1,present_form.chars.to_a.size).to_s
           when "る"
-            return present_form.chars.slice(0,present_form.chars.to_a.size-1) + "た"
+            return present_form.chars.to_a.slice(0,present_form.chars.to_a.size-1).to_s + "た"
           when "す"
-            return present_form.chars.slice(0,present_form.chars.to_a.size-1) + "した"
+            return present_form.chars.to_a.slice(0,present_form.chars.to_a.size-1).to_s + "した"
           when "う"
-            return present_form.chars.slice(0,present_form.chars.to_a.size-1) + "いた"
+            return present_form.chars.to_a.slice(0,present_form.chars.to_a.size-1).to_s + "いた"
           else
             case present_form
               when "??"
