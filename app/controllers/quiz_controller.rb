@@ -116,8 +116,11 @@ class QuizController < ApplicationController
         "format" => self.params["format"]
       }
                       
-      xslt.xsl = "stylesheets/xsl/quiz2html.xsl"
+      xslt.xsl = "public/stylesheets/xsl/quiz2html.xsl"
       @out = xslt.serve()
+
+      render :xml => @out
+
     end
 
   end

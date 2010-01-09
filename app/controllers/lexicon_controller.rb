@@ -146,6 +146,9 @@ class LexiconController < ApplicationController
       }
       xslt.xsl = "stylesheets/xsl/lexicon2html.xsl"
       @out = xslt.serve()
+
+      render :xml => @out
+
     end
 
   end

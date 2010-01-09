@@ -87,6 +87,9 @@ class KanjiController < ApplicationController
                       
       xslt.xsl = "stylesheets/xsl/kanjiquiz2html.xsl"
       @out = xslt.serve()
+
+      render :xml => @out
+
     end
 
   end

@@ -94,5 +94,7 @@ class InflectController < ApplicationController
       @out = xslt.serve()
     end
 
+    render :xml => @out
+
   end
 end
