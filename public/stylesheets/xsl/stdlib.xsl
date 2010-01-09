@@ -20,7 +20,7 @@
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 	<title>Japanese Learning Tool:<xsl:value-of select="$title"/></title>
 	<link
-          href="/jverb/stylesheets/quiz.css"
+          href="/stylesheets/quiz.css"
 	  media="screen" rel="stylesheet" type="text/css" />
 
         <script type="text/javascript" src="/jverb/javascripts/edit.js">
