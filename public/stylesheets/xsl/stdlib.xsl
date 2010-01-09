@@ -87,7 +87,7 @@
 	<xsl:apply-templates/>
         <div style="width:90%;float:right;font-size:smaller;border:1px solid #6666ff;margin-bottom:1em">
           <div style="width:90%;float:left;padding:1em;"> by <a href="http://hiro-tan.org/~ekoontz">Eugene Koontz</a></div>
-          <div style="float:left;padding:1em;"><a href="http://github.com/ekoontz/jverb">Source Code</a> licensed under the <a href="http://hiro-tan.org/svn/jverb/LICENSE">GNU Public License Version 2</a></div>
+          <div style="float:left;padding:1em;"><a href="http://github.com/ekoontz/jverb">Source Code</a> licensed under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU Public License Version 2</a></div>
         </div>
       </body>
     </html>
