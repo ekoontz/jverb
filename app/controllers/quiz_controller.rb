@@ -5,6 +5,7 @@ class QuizController < ApplicationController
   before_filter :set_content_type
 
   def set_content_type
+    @headers = {}
     if self.params["format"] == "xml"
       @headers["Content-Type"] = "text/xml; charset=utf-8" 
     else

@@ -32,13 +32,15 @@ class Lexeme < ActiveRecord::Base
   def stem
     # remove last character of the lexical (dictionary form)
     # for example 食べる (taberu) => 食べ (tabe)
-    return self.string.chars.slice(0,self.string.chars.size-1)
+    return self.string.chars.to_a.slice(0,self.string.chars.to_a.size-1).to_s
   end
 
   def premasu
     # remove last character of the lexical (dictionary form)
     # for example 食べる (taberu) => 食べ (tabe)
-    last = self.string.chars.slice(self.string.chars.size-1,self.string.chars.size)
+#    last = self.string.chars.slice(self.string.chars.to_a.size-1,self.string.chars.to_a.size)
+    last = self.string.last
+
     if last == "る"
       return self.stem+"り"
     end
@@ -81,19 +83,19 @@ class Lexeme < ActiveRecord::Base
       else
       case tense
       when "past"
-        case present_form.chars.slice(present_form.chars.size-2,present_form.chars.size)
+        case present_form.chars.slice(present_form.chars.to_a.size-2,present_form.chars.to_a.size).to_s
         when "する"
-          return present_form.chars.slice(0,present_form.chars.size-2) + "した"
+          return present_form.chars.slice(0,present_form.chars.to_a.size-2) + "した"
         when "ない"
-          return present_form.chars.slice(0,present_form.chars.size-2) + "なかった"
+          return present_form.chars.slice(0,present_form.chars.to_a.size-2) + "なかった"
         else
-          case present_form.chars.slice(present_form.chars.size-1,present_form.chars.size)  
+          case present_form.chars.slice(present_form.chars.to_a.size-1,present_form.chars.to_a.size).to_s
           when "る"
-            return present_form.chars.slice(0,present_form.chars.size-1) + "た"
+            return present_form.chars.slice(0,present_form.chars.to_a.size-1) + "た"
           when "す"
-            return present_form.chars.slice(0,present_form.chars.size-1) + "した"
+            return present_form.chars.slice(0,present_form.chars.to_a.size-1) + "した"
           when "う"
-            return present_form.chars.slice(0,present_form.chars.size-1) + "いた"
+            return present_form.chars.slice(0,present_form.chars.to_a.size-1) + "いた"
           else
             case present_form
               when "??"
@@ -125,21 +127,22 @@ class Lexeme < ActiveRecord::Base
       when "positive"
         return positive
       else # negative
-        case positive.chars.slice(positive.chars.size-2,positive.chars.size)
+        case positive.chars.to_a.slice(positive.chars.to_a.size-2,
+                                       positive.chars.to_a.size).to_s
         when "する"
-          return positive.chars.slice(0,positive.chars.size-2) + "しない"
+          return positive.chars.to_a.slice(0,positive.chars.to_a.size-2).to_s + "しない"
         when "なる"
-          return positive.chars.slice(0,positive.chars.size-1) + "らない"
+          return positive.chars.to_a.slice(0,positive.chars.to_a.size-1).to_s + "らない"
         when "ざる"
-          return positive.chars.slice(0,positive.chars.size-1) + "いない"
+          return positive.chars.to_a.slice(0,positive.chars.to_a.size-1).to_s + "いない"
         end
-        case positive.chars.slice(positive.chars.size-1,positive.chars.size)
+        case positive.chars.to_a.slice(positive.chars.to_a.size-1,positive.chars.to_a.size).to_s
         when "る"
-          return positive.chars.slice(0,positive.chars.size-1) + "ない"
+          return positive.chars.to_a.slice(0,positive.chars.to_a.size-1).to_s + "ない"
         when "す"
-          return positive.chars.slice(0,positive.chars.size-1) + "しない"
+          return positive.chars.to_a.slice(0,positive.chars.to_a.size-1).to_s + "しない"
         when "う"
-          return positive.chars.slice(0,positive.chars.size-1) + "いない"
+          return positive.chars.to_a.slice(0,positive.chars.to_a.size-1).to_s + "いない"
         end
         case positive
           when "??"
@@ -147,7 +150,7 @@ class Lexeme < ActiveRecord::Base
         end
       end
     end
-    raise "polarize("+positive+","+inflection+","+polarity+"):(["+positive.chars.slice(positive.chars.size-2,positive.chars.size)+"]:error)"
+    raise "polarize("+positive+","+inflection+","+polarity+"):(["+positive.chars.to_a.slice(positive.chars.to_a.size-2,positive.chars.to_a.size)+"]:error)"
   end
 
   def potential
@@ -172,23 +175,23 @@ class Lexeme < ActiveRecord::Base
         # <regular う-verbs>
         case self.string.last
         when "ぐ"
-          return stem.string + "げる"
+          return stem + "げる"
         when "く"
-          return stem.string + "ける"
+          return stem + "ける"
         when "む"
-          return stem.string + "める"
+          return stem + "める"
         when "ぶ"
-          return stem.string + "べる"
+          return stem + "べる"
         when "る"
-          return stem.string + "れる"
+          return stem + "れる"
         when "う"
-          return stem.string + "える"
+          return stem + "える"
         when "す"
-          return stem.string + "せる"
+          return stem + "せる"
         when "つ"
-          return stem.string + "てる"
+          return stem + "てる"
         when "ぬ"
-          return stem.string + "ねる"
+          return stem + "ねる"
           # </regular う-verbs>
         else
           return "don't know"
@@ -197,7 +200,7 @@ class Lexeme < ActiveRecord::Base
       end
         #<る-verbs>
     when "る"
-      return stem.string + "られる"
+      return stem + "られる"
       #</る-verbs>
     else
       raise "unknown lex type: "+self.lex_type
@@ -219,29 +222,29 @@ class Lexeme < ActiveRecord::Base
       #<exceptional う-verbs>
       case self.string
       when "行く"
-        return self.stem.string + "ったり"
+        return self.stem + "ったり"
       #</exceptional う-verbs>
       else
         # <regular う-verbs>
         case self.string.last
         when "ぐ"
-          return self.stem.string + "いだり"
+          return self.stem + "いだり"
         when "く"
-          return self.stem.string + "いたり"
+          return self.stem + "いたり"
         when "む"
-          return self.stem.string + "んだり"
+          return self.stem + "んだり"
         when "ぶ"
-          return self.stem.string + "んだり"
+          return self.stem + "んだり"
         when "る"
-          return self.stem.string + "ったり"
+          return self.stem + "ったり"
         when "う"
-          return self.stem.string + "ったり"
+          return self.stem + "ったり"
         when "す"
-          return  self.stem.string + "したり"
+          return  self.stem + "したり"
         when "つ"
-          return self.stem.string + "ったり"
+          return self.stem + "ったり"
         when "ぬ"
-          return self.stem.string + "んだり"
+          return self.stem + "んだり"
           # </regular う-verbs>
         else
           return "don't know"
@@ -250,7 +253,7 @@ class Lexeme < ActiveRecord::Base
       end
         #<る-verbs>
     when "る"
-      return self.stem.string + "たり"
+      return self.stem + "たり"
       #</る-verbs>
     else
       raise "unknown lex type: "+self.lex_type
@@ -272,29 +275,29 @@ class Lexeme < ActiveRecord::Base
       #<exceptional う-verbs>
       case self.string
       when "行く"
-        return self.stem.string + "かれる"
+        return self.stem + "かれる"
       #</exceptional う-verbs>
       else
         # <regular う-verbs>
         case self.string.last
         when "ぐ"
-          return self.stem.string + "がれる"
+          return self.stem + "がれる"
         when "く"
-          return self.stem.string + "かれる"
+          return self.stem + "かれる"
         when "む"
-          return self.stem.string + "まれる"
+          return self.stem + "まれる"
         when "ぶ"
-          return self.stem.string + "ばれる"
+          return self.stem + "ばれる"
         when "る"
-          return self.stem.string + "られる"
+          return self.stem + "られる"
         when "う"
-          return self.stem.string + "われる"
+          return self.stem + "われる"
         when "す"
-          return self.stem.string + "される"
+          return self.stem + "される"
         when "つ"
-          return self.stem.string + "たれる"
+          return self.stem + "たれる"
         when "ぬ"
-          return self.stem.string + "なれる"
+          return self.stem + "なれる"
           # </regular う-verbs>
         else
           return "don't know"
@@ -303,7 +306,7 @@ class Lexeme < ActiveRecord::Base
       end
         #<る-verbs>
     when "る"
-      return self.stem.string + "られる"
+      return self.stem + "られる"
       #</る-verbs>
     else
       raise "passive(): unknown lex type: "+self.lex_type
@@ -325,23 +328,23 @@ class Lexeme < ActiveRecord::Base
       #<う-verbs>
       case self.string.last
       when "ぐ"
-        return stem.string + "げ"
+        return stem + "げ"
       when "く"
-        return stem.string + "け"
+        return stem + "け"
       when "む"
-        return stem.string + "め"
+        return stem + "め"
       when "ぶ"
-        return stem.string + "べ"
+        return stem + "べ"
       when "る"
-        return stem.string + "れ"
+        return stem + "れ"
       when "う"
-        return stem.string + "え"
+        return stem + "え"
       when "す"
-        return  stem.string + "せ"
+        return  stem + "せ"
       when "つ"
-        return stem.string + "て"
+        return stem + "て"
       when "ぬ"
-        return stem.string + "ね"
+        return stem + "ね"
         # </regular う-verbs>
       else
         return "don't know"
@@ -349,7 +352,7 @@ class Lexeme < ActiveRecord::Base
       #</う-verbs>
       #<る-verbs>
     when "る"
-      return stem.string + "れ"
+      return stem + "れ"
       #</る-verbs>
     else
       raise "unknown lex type: "+self.lex_type

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'xml/xslt'
 
 class Lexeme < ActiveRecord::Base
